@@ -25,6 +25,8 @@
     ./languages/rust.nix
     ./languages/markdown
     ./languages/nix.nix
+    ./languages/cpp.nix
+    ./languages/log.nix
     ./dap/dap.nix
 
     ./lsp/conform.nix
