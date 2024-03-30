@@ -19,7 +19,7 @@
       };
     };
     move = {
-      enable = true;
+      enable = false;
       gotoNextStart = {
         "]f" = "@function.outer";
         "]c" = "@class.outer";

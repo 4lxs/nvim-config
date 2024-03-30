@@ -12,6 +12,14 @@
     })
   ];
   extraConfigLua = ''
-    require('ultimate-autopair').setup()
+    require('ultimate-autopair').setup{
+      cmap = false,
+      pair_cmap = false,
+      fatwarp = {
+        map = '<C-e>',
+        rmap = '<C-E>',
+        nocursormove = false,
+      }
+    }
   '';
 }

@@ -69,6 +69,9 @@
         "<c-down>" = "<cmd>resize -2<cr>";
         "<c-left>" = "<cmd>vertical resize +2<cr>";
         "<c-right>" = "<cmd>vertical resize -2<cr>";
+
+        # sometimes i just want to delete autopair plugin
+        "<c-l>" = "<right><bs>";
       };
     visual =
       lib.mapAttrsToList

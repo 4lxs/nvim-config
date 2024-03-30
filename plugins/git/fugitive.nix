@@ -28,8 +28,6 @@
         "<leader>ga" = "<cmd>Gwrite<cr>";
         "<leader>gr" = "<cmd>Gread<cr>";
         "<leader>gb" = "<cmd>Git blame<cr>";
-        "gh" = "diffget //2<cr>";
-        "gl" = "diffget //3<cr>";
       };
   in
     normal;

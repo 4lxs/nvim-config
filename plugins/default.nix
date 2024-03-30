@@ -12,7 +12,6 @@
     ./completion/lspkind.nix
 
     ./git/gitsigns.nix
-    ./git/diffview.nix
     ./git/fugitive.nix
 
     ./treesitter/treesitter.nix
