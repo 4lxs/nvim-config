@@ -4,8 +4,10 @@
     modules = {
       comment = {
         options = {
-          customCommentString = ''
-            <cmd>lua require("ts_context_commentstring.internal").calculate_commentstring() or vim.bo.commentstring<cr>
+          custom_commentstring.__raw = ''
+            function()
+              return require("ts_context_commentstring.internal").calculate_commentstring() or vim.bo.commentstring
+            end
           '';
         };
       };
