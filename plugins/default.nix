@@ -20,6 +20,8 @@
     ./treesitter/ts-autotag.nix
     ./treesitter/ts-context-commentstring.nix
 
+    ./cp/competitest.nix
+
     ./languages/nvim-lint.nix
     ./languages/rust.nix
     ./languages/markdown

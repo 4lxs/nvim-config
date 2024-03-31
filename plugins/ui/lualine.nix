@@ -1,18 +1,18 @@
-{
+{lib, ...}: {
   plugins.gitsigns.enable = true;
   plugins.lualine = {
     enable = true;
 
     globalstatus = true;
-    disabledFiletypes.statusline = [ "dashboard" "alpha" "starter" ];
+    disabledFiletypes.statusline = ["dashboard" "alpha" "starter"];
     theme = "auto";
     alwaysDivideMiddle = true;
 
-    extensions = [ "fzf" "oil" ];
+    extensions = ["fzf" "oil"];
 
     sections = {
-      lualine_a = [ "mode" ];
-      lualine_b = [ "" ];
+      lualine_a = ["mode"];
+      lualine_b = [""];
       lualine_c = [
         # TODO: LazyVim.lualine.root_dir(),
         {
@@ -66,15 +66,21 @@
       lualine_y = [
         {
           name = "progress";
-          separator = { right = " "; };
-          padding = { left = 1; right = 0; };
+          separator = {right = " ";};
+          padding = {
+            left = 1;
+            right = 0;
+          };
         }
         {
           name = "location";
-          padding = { left = 0; right = 1; };
+          padding = {
+            left = 0;
+            right = 1;
+          };
         }
       ];
-      lualine_z = [ "" ];
+      lualine_z = [""];
     };
   };
 }
