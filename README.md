@@ -3,8 +3,10 @@
 
 ## TODOs
 
-- [ ] <leader>ss map to telescope find function
+- [x] <leader>ss map to telescope find function
 - [ ] work log file treesitter grammar
-- [ ] ]e, [e map to next/previous error
 - [ ] ]h, [h map to next/previous git hunk
-- [ ] flash.nvim s/S
+- [x] flash.nvim s/S
+- [ ] auto install lsp (markdownlint)
+- [ ] use lualine instead of fidget.nvim
+- [ ] get rid of lspsaga.nvim
