@@ -17,7 +17,6 @@
     ./treesitter/treesitter.nix
     ./treesitter/treesitter-context.nix
     ./treesitter/treesitter-textobjects.nix
-    ./treesitter/ts-autotag.nix
     ./treesitter/ts-context-commentstring.nix
 
     ./cp/competitest.nix

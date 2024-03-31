@@ -17,10 +17,13 @@
     symbolInWinbar = {
       enable = true; # Breadcrumbs
     };
+    finder.methods = {
+      tyd = "textDocument/typeDefinition";
+    };
     codeAction = {
       extendGitSigns = false;
       showServerName = true;
-      onlyInCursor = true;
+      onlyInCursor = false;
       numShortcut = true;
       keys = {
         exec = "<CR>";
@@ -64,6 +67,15 @@
     }
     {
       mode = "n";
+      key = "gy";
+      action = "<cmd>Lspsaga finder tyd<CR>";
+      options = {
+        desc = "Type definition";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
       key = "gr";
       action = "<cmd>Lspsaga finder ref<CR>";
       options = {
@@ -71,16 +83,6 @@
         silent = true;
       };
     }
-
-    # {
-    #   mode = "n";
-    #   key = "gD";
-    #   action = "<cmd>Lspsaga show_line_diagnostics<CR>";
-    #   options = {
-    #     desc = "Goto Declaration";
-    #     silent = true;
-    #   };
-    # }
 
     {
       mode = "n";

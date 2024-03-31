@@ -54,10 +54,6 @@
         action = "command_history, {}";
         desc = "Command History";
       };
-      "<leader>b" = {
-        action = "buffers, {}";
-        desc = "+buffer";
-      };
       "<leader>fr" = {
         action = "oldfiles, {}";
         desc = "Recent";
@@ -125,6 +121,14 @@
       "<leader>uC" = {
         action = "colorscheme, {}";
         desc = "Colorscheme preview";
+      };
+      "<leader>ss" = {
+        action = "lsp_document_symbols, {}";
+        desc = "Lsp document symbols";
+      };
+      "<leader>sS" = {
+        action = "lsp_dynamic_workspace_symbols, {}";
+        desc = "Lsp workspace symbols";
       };
     };
   };
