@@ -60,6 +60,8 @@
         devShells = {
           default = import ./shell.nix {inherit pkgs;};
         };
+
+        formatter = inputs.nixpkgs.legacyPackages.${system}.nixfmt;
       };
     };
 }
