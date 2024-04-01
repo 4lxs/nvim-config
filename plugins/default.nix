@@ -21,7 +21,6 @@
 
     ./cp/competitest.nix
 
-    ./languages/nvim-lint.nix
     ./languages/rust.nix
     ./languages/markdown
     ./languages/nix.nix
@@ -30,6 +29,7 @@
     ./languages/ocaml
     ./dap/dap.nix
 
+    ./lsp/nvim-lint.nix
     ./lsp/conform.nix
     ./lsp/fidget.nix
     ./lsp/lsp.nix

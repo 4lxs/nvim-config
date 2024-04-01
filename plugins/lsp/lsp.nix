@@ -19,7 +19,6 @@
             };
           };
         };
-        nil_ls = { enable = true; };
         tsserver = {
           enable = false;
           filetypes =
