@@ -12,21 +12,18 @@
           extraOptions = {
             settings = {
               Lua = {
-                completion = {
-                  callSnippet = "Replace";
-                };
-                telemetry = {
-                  enabled = false;
-                };
-                hint = {enable = true;};
+                completion = { callSnippet = "Replace"; };
+                telemetry = { enabled = false; };
+                hint = { enable = true; };
               };
             };
           };
         };
-        nil_ls = {enable = true;};
+        nil_ls = { enable = true; };
         tsserver = {
           enable = false;
-          filetypes = ["javascript" "javascriptreact" "typescript" "typescriptreact"];
+          filetypes =
+            [ "javascript" "javascriptreact" "typescript" "typescriptreact" ];
           extraOptions = {
             settings = {
               javascript = {
@@ -54,9 +51,9 @@
             };
           };
         };
-        eslint = {enable = true;};
-        pyright = {enable = true;};
-        ruff-lsp = {enable = true;};
+        eslint = { enable = true; };
+        pyright = { enable = true; };
+        ruff-lsp = { enable = true; };
       };
       # keymaps = {
       #   silent = true;

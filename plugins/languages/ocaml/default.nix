@@ -1,5 +1,1 @@
-{
-  plugins.lsp.servers.ocamllsp = {
-    enable = true;
-  };
-}
+{ plugins.lsp.servers.ocamllsp = { enable = true; }; }

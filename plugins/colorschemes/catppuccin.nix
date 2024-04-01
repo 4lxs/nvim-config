@@ -30,14 +30,12 @@
       lsp_trouble = true;
       native_lsp = {
         enabled = true;
-        inlay_hints = {
-          background = true;
-        };
+        inlay_hints = { background = true; };
         underlines = {
-          errors = ["underline"];
-          hints = ["underline"];
-          information = ["underline"];
-          warnings = ["underline"];
+          errors = [ "underline" ];
+          hints = [ "underline" ];
+          information = [ "underline" ];
+          warnings = [ "underline" ];
         };
       };
     };

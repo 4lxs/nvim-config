@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   # extraPlugins = [
   #   (pkgs.vimPlugins.buildVimPlugin {
   #     name = "my-log.nvim";

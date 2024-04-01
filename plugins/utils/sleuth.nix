@@ -1,3 +1,1 @@
-{
-  plugins.sleuth.enable = true;
-}
+{ plugins.sleuth.enable = true; }

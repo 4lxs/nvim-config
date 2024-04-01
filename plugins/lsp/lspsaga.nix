@@ -17,9 +17,7 @@
     symbolInWinbar = {
       enable = true; # Breadcrumbs
     };
-    finder.methods = {
-      tyd = "textDocument/typeDefinition";
-    };
+    finder.methods = { tyd = "textDocument/typeDefinition"; };
     codeAction = {
       extendGitSigns = false;
       showServerName = true;
@@ -27,14 +25,14 @@
       numShortcut = true;
       keys = {
         exec = "<CR>";
-        quit = ["<Esc>" "q"];
+        quit = [ "<Esc>" "q" ];
       };
     };
     rename = {
       autoSave = false;
       keys = {
         exec = "<CR>";
-        quit = ["<C-k>" "<Esc>"];
+        quit = [ "<C-k>" "<Esc>" ];
         select = "x";
       };
     };

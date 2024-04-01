@@ -13,11 +13,10 @@
         window = {
           completion = {
             border = "rounded";
-            winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None";
+            winhighlight =
+              "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None";
           };
-          documentation = {
-            border = "rounded";
-          };
+          documentation = { border = "rounded"; };
         };
 
         performance = {
@@ -25,12 +24,11 @@
           maxViewEntries = 30;
         };
 
-        experimental = {
-          ghost_text = true;
-        };
+        experimental = { ghost_text = true; };
 
         mapping = {
-          "<tab>" = "cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace })";
+          "<tab>" =
+            "cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace })";
           # "<Tab>" = ''
           #   function(fallback)
           #     if cmp.visible() then
@@ -55,12 +53,12 @@
         };
 
         sources = [
-          {name = "nvim_lsp";}
-          {name = "mkdnflow";}
-          {name = "buffer";}
-          {name = "copilot";}
-          {name = "path";}
-          {name = "luasnip";}
+          { name = "nvim_lsp"; }
+          { name = "mkdnflow"; }
+          { name = "buffer"; }
+          { name = "copilot"; }
+          { name = "path"; }
+          { name = "luasnip"; }
         ];
         # TODO: clangd_extensions doesn't work
         # sorting.comparators = [

@@ -3,21 +3,16 @@
     enable = true;
     useDefaultKeymaps = true;
     deleteToTrash = true;
-    viewOptions = {
-      showHidden = true;
-    };
+    viewOptions = { showHidden = true; };
     float = {
       padding = 2;
       maxWidth = 0; # ''math.ceil(vim.o.lines * 0.8 - 4)'';
       maxHeight = 0; # ''math.ceil(vim.o.columns * 0.8)'';
-      border = "rounded"; # 'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
-      winOptions = {
-        winblend = 0;
-      };
+      border =
+        "rounded"; # 'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
+      winOptions = { winblend = 0; };
     };
-    preview = {
-      border = "rounded";
-    };
+    preview = { border = "rounded"; };
     keymaps = {
       "g?" = "actions.show_help";
       "<CR>" = "actions.select";
@@ -37,7 +32,9 @@
       "q" = "actions.close";
     };
   };
-  keymaps = [
-    { mode = [ "n" ]; action = "<CMD>Oil<CR>"; key = "-"; }
-  ];
+  keymaps = [{
+    mode = [ "n" ];
+    action = "<CMD>Oil<CR>";
+    key = "-";
+  }];
 }

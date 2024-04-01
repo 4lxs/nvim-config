@@ -24,17 +24,14 @@
     {
       event = "TextYankPost";
       pattern = "*";
-      command = "silent! lua vim.highlight.on_yank({higroup='IncSearch', timeout=200})";
+      command =
+        "silent! lua vim.highlight.on_yank({higroup='IncSearch', timeout=200})";
     }
 
     # Enable spellcheck for some filetypes
     {
       event = "FileType";
-      pattern = [
-        "tex"
-        "latex"
-        "markdown"
-      ];
+      pattern = [ "tex" "latex" "markdown" ];
       command = "setlocal spell spelllang=en";
     }
 

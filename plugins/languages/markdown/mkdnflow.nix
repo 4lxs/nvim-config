@@ -1,8 +1,6 @@
 {
   plugins.mkdnflow = {
     enable = true;
-    links = {
-      conceal = true;
-    };
+    links = { conceal = true; };
   };
 }

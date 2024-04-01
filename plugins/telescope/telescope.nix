@@ -2,16 +2,8 @@
   plugins.telescope = {
     enable = true;
     extensions = {
-      fzf-native = {
-        enable = true;
-      };
-      ui-select = {
-        settings = {
-          specific_opts = {
-            codeactions = true;
-          };
-        };
-      };
+      fzf-native = { enable = true; };
+      ui-select = { settings = { specific_opts = { codeactions = true; }; }; };
       undo = {
         enable = true;
         mappings = {
@@ -137,9 +129,7 @@
       mode = "n";
       key = "<leader>sd";
       action = "<cmd>Telescope diagnostics bufnr=0<cr>";
-      options = {
-        desc = "Document diagnostics";
-      };
+      options = { desc = "Document diagnostics"; };
     }
 
     {

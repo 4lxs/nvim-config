@@ -36,9 +36,12 @@
       undofile = true; # Automatically save and restore undo history
       incsearch = true; # Incremental search: show match for partly typed
       # search command
-      inccommand = "split"; # Search and replace: preview changes in quickfix list
-      ignorecase = true; # When the search query is lower-case, match both lower and upper-case
-      smartcase = true; # Override the 'ignorecase' option if the search pattern contains upper
+      inccommand =
+        "split"; # Search and replace: preview changes in quickfix list
+      ignorecase =
+        true; # When the search query is lower-case, match both lower and upper-case
+      smartcase =
+        true; # Override the 'ignorecase' option if the search pattern contains upper
       scrolloff = 8; # Number of screen lines to show around the cursor
       cursorline = false; # Highlight the screen line of the cursor
       cursorcolumn = false; # Highlight the screen column of the cursor
@@ -51,16 +54,20 @@
       wrap = false; # Prevent text from wrapping
 
       # Tab options
-      tabstop = 4; # Number of spaces a <Tab> in the text stands for (local to buffer)
-      shiftwidth = 4; # Number of spaces used for each step of (auto)indent (local to buffer)
-      expandtab = true; # Expand <Tab> to spaces in Insert mode (local to buffer)
+      tabstop =
+        4; # Number of spaces a <Tab> in the text stands for (local to buffer)
+      shiftwidth =
+        4; # Number of spaces used for each step of (auto)indent (local to buffer)
+      expandtab =
+        true; # Expand <Tab> to spaces in Insert mode (local to buffer)
       autoindent = true; # Do clever autoindenting
 
       # textwidth = 80; # Maximum width of text that is being inserted.  A
       # longer line will be broken after white space to get this width.
 
       # Folding
-      foldlevel = 99; # Folds with a level higher than this number will be closed
+      foldlevel =
+        99; # Folds with a level higher than this number will be closed
 
       grepprg = "rg --vimgrep";
       grepformat = "%f:%l:%c:%m";

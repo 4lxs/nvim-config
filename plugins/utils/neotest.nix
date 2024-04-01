@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   extraPlugins = with pkgs.vimPlugins; [
     (pkgs.vimUtils.buildVimPlugin {
       pname = "neotest-java";
@@ -105,7 +105,8 @@
     {
       mode = "n";
       key = "<leader>to";
-      action = "<cmd>lua require('neotest').output.open{ enter = true, auto_close = true }<CR>";
+      action =
+        "<cmd>lua require('neotest').output.open{ enter = true, auto_close = true }<CR>";
       options = {
         desc = "Show Output";
         silent = true;
