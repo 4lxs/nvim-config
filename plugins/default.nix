@@ -27,6 +27,7 @@
     ./languages/nix.nix
     ./languages/cpp.nix
     ./languages/log.nix
+    ./languages/ocaml
     ./dap/dap.nix
 
     ./lsp/conform.nix
