@@ -1,17 +1,6 @@
 { pkgs, svlib, ... }:
 {
-  extraPlugins = [
-    (pkgs.vimUtils.buildVimPlugin {
-      pname = "competitest.nvim";
-      version = "2024-03-19";
-      src = pkgs.fetchFromGitHub {
-        owner = "xeluxee";
-        repo = "competitest.nvim";
-        rev = "c3cb0e2b0916a879c4d3dcb5737e6c046dd0afc5";
-        sha256 = "ABxdZ98W5W6K0rz0z/1I5lXzLCBnth6ozUUQ1W1nvpo=";
-      };
-    })
-  ];
+  extraPlugins = with pkgs.vimPlugins; [ competitest-nvim ];
 
   extraConfigLua = ''
     require('competitest').setup {
