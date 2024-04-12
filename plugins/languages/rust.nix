@@ -9,8 +9,12 @@
             extraArgs = [ "--no-deps" ];
             features = "all";
           };
-          cargo = { features = "all"; };
-          procMacro = { enable = true; };
+          cargo = {
+            features = "all";
+          };
+          procMacro = {
+            enable = true;
+          };
         };
       };
     };
@@ -20,7 +24,9 @@
         installCargo = true;
         installRustc = true;
       };
-      taplo = { enable = true; };
+      taplo = {
+        enable = true;
+      };
     };
     fidget.progress.display.overrides.rust_analyzer = {
       name = "rust-analyzer";

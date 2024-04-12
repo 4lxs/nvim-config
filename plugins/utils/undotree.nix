@@ -6,13 +6,15 @@
       SetFocusWhenToggle = true;
     };
   };
-  keymaps = [{
-    mode = "n";
-    key = "<leader>uu";
-    action = "<cmd>UndotreeToggle<CR>";
-    options = {
-      silent = true;
-      desc = "Undotree";
-    };
-  }];
+  keymaps = [
+    {
+      mode = "n";
+      key = "<leader>uu";
+      action = "<cmd>UndotreeToggle<CR>";
+      options = {
+        silent = true;
+        desc = "Undotree";
+      };
+    }
+  ];
 }

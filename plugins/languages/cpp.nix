@@ -1,4 +1,5 @@
-{ pkgs, options, ... }: {
+{ pkgs, options, ... }:
+{
   plugins = {
     lsp.servers.clangd = {
       enable = true;
@@ -27,7 +28,9 @@
     };
     clangd-extensions = {
       enable = true;
-      extraOptions = { codelens.enable = true; };
+      extraOptions = {
+        codelens.enable = true;
+      };
       ast = {
         roleIcons = {
           type = "";

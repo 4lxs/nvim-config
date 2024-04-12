@@ -1,1 +1,4 @@
-{ pkgs, ... }: { extraPlugins = with pkgs.vimPlugins; [ nui-nvim ]; }
+{ pkgs, ... }:
+{
+  extraPlugins = with pkgs.vimPlugins; [ nui-nvim ];
+}

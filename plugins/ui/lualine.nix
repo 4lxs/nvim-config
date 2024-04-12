@@ -1,20 +1,28 @@
-{ lib, ... }: {
+{ lib, ... }:
+{
   plugins.gitsigns.enable = true;
   plugins.lualine = {
     enable = true;
 
     globalstatus = true;
-    disabledFiletypes.statusline = [ "dashboard" "alpha" "starter" ];
+    disabledFiletypes.statusline = [
+      "dashboard"
+      "alpha"
+      "starter"
+    ];
     theme = "auto";
     alwaysDivideMiddle = true;
 
-    extensions = [ "fzf" "oil" ];
+    extensions = [
+      "oil"
+      "fugitive"
+      "trouble"
+    ];
 
     sections = {
       lualine_a = [ "mode" ];
       lualine_b = [ "" ];
       lualine_c = [
-        # TODO: LazyVim.lualine.root_dir(),
         {
           name = "diagnostics";
           extraConfig = {
@@ -32,49 +40,57 @@
             left = 1;
             right = 0;
           };
-          extraConfig = { icon_only = true; };
+          extraConfig = {
+            icon_only = true;
+          };
         }
-        # TODO: LazyVim.lualine.pretty_path()
+        {
+          name = "filename";
+          separator.left = "";
+          extraConfig = {
+            path = 1;
+          };
+        }
       ];
 
-      lualine_x = [{
-        name = "diff";
-        extraConfig = {
-          symbols = {
-            added = " ";
-            modified = " ";
-            removed = " ";
-          };
-          source.__raw = ''
-            function()
-              local gitsigns = vim.b.gitsigns_status_dict
-              if gitsigns then
-                return {
-                  added = gitsigns.added,
-                  modified = gitsigns.changed,
-                  removed = gitsigns.removed,
-                }
+      lualine_x = [
+        {
+          name = "diff";
+          extraConfig = {
+            symbols = {
+              added = " ";
+              modified = " ";
+              removed = " ";
+            };
+            source.__raw = ''
+              function()
+                local gitsigns = vim.b.gitsigns_status_dict
+                if gitsigns then
+                  return {
+                    added = gitsigns.added,
+                    modified = gitsigns.changed,
+                    removed = gitsigns.removed,
+                  }
+                end
               end
-            end
-          '';
-        };
-      }];
+            '';
+          };
+        }
+      ];
       lualine_y = [
         {
-          name = "progress";
-          separator = { right = " "; };
+          name = "searchcount";
           padding = {
             left = 1;
             right = 0;
           };
+          separator.right = " ";
         }
         {
-          name = "location";
-          padding = {
-            left = 0;
-            right = 1;
-          };
+          name = "progress";
+          separator.right = " ";
         }
+        { name = "location"; }
       ];
       lualine_z = [ "" ];
     };

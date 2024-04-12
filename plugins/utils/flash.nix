@@ -1,41 +1,50 @@
-{ lib, ... }: {
+{ svlib, ... }:
+{
   plugins.flash = {
     enable = true;
-    search = { mode = "fuzzy"; };
-    modes = { search.enabled = false; };
-    label = { uppercase = false; };
+    modes = {
+      search.enabled = false;
+      char.enabled = true;
+    };
   };
 
-  keymaps = let
-    normal = lib.mapAttrsToList (key: action: {
-      mode = "n";
-      inherit action key;
-    }) {
-      "s" = { __raw = ''function() require("flash").jump() end''; };
-      "S" = { __raw = ''function() require("flash").treesitter() end''; };
-    };
-    visual = lib.mapAttrsToList (key: action: {
-      mode = "x";
-      inherit action key;
-    }) {
-      "s" = { __raw = ''function() require("flash").jump() end''; };
-      "S" = { __raw = ''function() require("flash").treesitter() end''; };
-      "r" = { __raw = ''function() require("flash").remote() end''; };
-    };
-    operator = lib.mapAttrsToList (key: action: {
-      mode = "o";
-      inherit action key;
-    }) {
-      "s" = { __raw = ''function() require("flash").jump() end''; };
-      "S" = { __raw = ''function() require("flash").treesitter() end''; };
-      "r" = { __raw = ''function() require("flash").remote() end''; };
+  keymaps =
+    svlib.createKeymaps "n" {
+      "s" = {
+        action.__raw = ''function() require("flash").jump() end'';
+      };
+      "S" = {
+        action.__raw = ''function() require("flash").treesitter() end'';
+      };
+    }
+    ++ svlib.createKeymaps "x" {
+      "s" = {
+        action.__raw = ''function() require("flash").jump() end'';
+      };
+      "S" = {
+        action.__raw = ''function() require("flash").treesitter() end'';
+      };
+      "r" = {
+        action.__raw = ''function() require("flash").remote() end'';
+      };
+    }
+    ++ svlib.createKeymaps "o" {
+      "s" = {
+        action.__raw = ''function() require("flash").jump() end'';
+      };
+      "S" = {
+        action.__raw = ''function() require("flash").treesitter() end'';
+      };
+      "r" = {
+        action.__raw = ''function() require("flash").remote() end'';
+      };
       "R" = {
-        __raw = ''function() require("flash").treesitter_search() end'';
+        action.__raw = ''function() require("flash").treesitter_search() end'';
+      };
+    }
+    ++ svlib.createKeymaps "c" {
+      "<c-s>" = {
+        action.__raw = ''function() require("flash").toggle() end'';
       };
     };
-    modeC = lib.mapAttrsToList (key: action: {
-      mode = "c";
-      inherit action key;
-    }) { "<c-s>" = { __raw = ''function() require("flash").toggle() end''; }; };
-  in normal ++ visual ++ operator ++ modeC;
 }

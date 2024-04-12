@@ -2,26 +2,18 @@
   plugins.telescope = {
     enable = true;
     extensions = {
-      fzf-native = { enable = true; };
-      ui-select = { settings = { specific_opts = { codeactions = true; }; }; };
-      undo = {
-        enable = true;
-        mappings = {
-          i = {
-            "<cr>" = "yank_additions";
-            "<s-cr>" = "yank_deletions";
-            "<c-cr>" = "restore";
-          };
-          n = {
-            "y" = "yank_additions";
-            "Y" = "yank_deletions";
-            "u" = "restore";
+      fzf-native.enable = true;
+      ui-select = {
+        settings = {
+          specific_opts = {
+            codeactions = true;
           };
         };
       };
+      undo.enable = true;
     };
     # If you'd prefer Telescope not to enter a normal-like mode when hitting escape (and instead exiting), you can map <Esc> to do so via:
-    defaults = {
+    settings.defaults = {
       mappings = {
         i = {
           "<esc>" = {
@@ -30,135 +22,130 @@
                 return require("telescope.actions").close(...)
               end'';
           };
+          "<c-t>" = {
+            __raw = ''
+              function(...)
+                require('trouble.providers.telescope').open_with_trouble(...);
+              end
+            '';
+          };
+        };
+        n = {
+          "<c-t>" = {
+            __raw = ''
+              function(...)
+                require('trouble.providers.telescope').open_with_trouble(...);
+              end
+            '';
+          };
         };
       };
     };
     keymaps = {
       "<leader><space>" = {
         action = "find_files, {}";
-        desc = "Find project files";
+        options.desc = "Find project files";
       };
       "<leader>/" = {
         action = "live_grep";
-        desc = "Grep (root dir)";
+        options.desc = "Grep (root dir)";
       };
       "<leader>:" = {
         action = "command_history, {}";
-        desc = "Command History";
+        options.desc = "Command History";
       };
       "<leader>fr" = {
         action = "oldfiles, {}";
-        desc = "Recent";
+        options.desc = "Recent";
       };
       "<leader>fb" = {
         action = "buffers, {}";
-        desc = "Buffers";
+        options.desc = "Buffers";
       };
-      "<leader>gc" = {
+      "<leader>fgc" = {
         action = "git_commits, {}";
-        desc = "Commits";
+        options.desc = "Commits";
       };
-      "<leader>gs" = {
+      "<leader>fgs" = {
         action = "git_status, {}";
-        desc = "Status";
+        options.desc = "Status";
       };
-      "<leader>sa" = {
+      "<leader>fa" = {
         action = "autocommands, {}";
-        desc = "Auto Commands";
+        options.desc = "Auto Commands";
       };
-      "<leader>sb" = {
-        action = "current_buffer_fuzzy_find, {}";
-        desc = "Buffer";
-      };
-      "<leader>sc" = {
+      "<leader>fc" = {
         action = "command_history, {}";
-        desc = "Command History";
+        options.desc = "Command History";
       };
-      "<leader>sC" = {
+      "<leader>fC" = {
         action = "commands, {}";
-        desc = "Commands";
+        options.desc = "Commands";
       };
-      "<leader>sD" = {
+      "<leader>fx" = {
+        action = "diagnostics, { bufnr = 0 }";
+        options.desc = "Workspace diagnostics";
+      };
+      "<leader>fX" = {
         action = "diagnostics, {}";
-        desc = "Workspace diagnostics";
+        options.desc = "Workspace diagnostics";
       };
-      "<leader>sh" = {
+      "<leader>fh" = {
         action = "help_tags, {}";
-        desc = "Help pages";
+        options.desc = "Help pages";
       };
-      "<leader>sH" = {
+      "<leader>fH" = {
         action = "highlights, {}";
-        desc = "Search Highlight Groups";
+        options.desc = "Search Highlight Groups";
       };
-      "<leader>sk" = {
+      "<leader>fk" = {
         action = "keymaps, {}";
-        desc = "Keymaps";
+        options.desc = "Keymaps";
       };
-      "<leader>sM" = {
+      "<leader>fM" = {
         action = "man_pages, {}";
-        desc = "Man pages";
+        options.desc = "Man pages";
       };
-      "<leader>sm" = {
+      "<leader>fm" = {
         action = "marks, {}";
-        desc = "Jump to Mark";
+        options.desc = "Jump to Mark";
       };
-      "<leader>so" = {
+      "<leader>fo" = {
         action = "vim_options, {}";
-        desc = "Options";
+        options.desc = "Options";
       };
-      "<leader>sR" = {
+      "<leader>fR" = {
         action = "resume, {}";
-        desc = "Resume";
+        options.desc = "Resume";
       };
       "<leader>uC" = {
         action = "colorscheme, {}";
-        desc = "Colorscheme preview";
+        options.desc = "Colorscheme preview";
       };
       "<leader>ss" = {
         action = "lsp_document_symbols, {}";
-        desc = "Lsp document symbols";
+        options.desc = "Lsp document symbols";
       };
       "<leader>sS" = {
         action = "lsp_dynamic_workspace_symbols, {}";
-        desc = "Lsp workspace symbols";
+        options.desc = "Lsp workspace symbols";
+      };
+      "gd" = {
+        action = "lsp_definitions, {}";
+        options.desc = "Lsp definitions";
+      };
+      "gy" = {
+        action = "lsp_type_definitions, {}";
+        options.desc = "Lsp type definitions";
+      };
+      "gr" = {
+        action = "lsp_references, {}";
+        options.desc = "Lsp references";
+      };
+      "<leader>gb" = {
+        action = "git_branches, {}";
+        options.desc = "Git branches";
       };
     };
   };
-  keymaps = [
-    {
-      mode = "n";
-      key = "<leader>sd";
-      action = "<cmd>Telescope diagnostics bufnr=0<cr>";
-      options = { desc = "Document diagnostics"; };
-    }
-
-    {
-      mode = "n";
-      key = "<leader>st";
-      action = "<cmd>TodoTelescope<cr>";
-      options = {
-        silent = true;
-        desc = "Todo (Telescope)";
-      };
-    }
-
-    # {
-    #   mode = "n";
-    #   key = "<leader>,";
-    #   action = "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>";
-    #   options = {
-    #     desc = "Switch Buffer";
-    #   };
-    # }
-  ];
-  extraConfigLua = ''
-    local telescope = require('telescope')
-    telescope.setup{
-        pickers = {
-          colorscheme = {
-            enable_preview = true
-          }
-        }
-    }
-  '';
 }

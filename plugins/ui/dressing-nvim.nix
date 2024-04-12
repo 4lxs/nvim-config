@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   extraPlugins = with pkgs.vimPlugins; [ dressing-nvim ];
   extraConfigLua = ''
     require("dressing").setup({

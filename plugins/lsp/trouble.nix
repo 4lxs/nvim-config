@@ -1,3 +1,4 @@
+{ svlib, ... }:
 {
   plugins.trouble = {
     enable = true;
@@ -6,47 +7,37 @@
       use_diagnostic_signs = true;
     };
   };
-  keymaps = [
-    {
-      mode = "n";
-      key = "<leader>x";
-      action = "+diagnostics/quickfix";
-    }
-    {
-      mode = "n";
-      key = "<leader>xx";
+  keymaps = svlib.createKeymaps "n" {
+    "<leader>x" = "+diagnostics/quickfix";
+    "<leader>xx" = {
       action = "<cmd>TroubleToggle<cr>";
-      options = {
-        silent = true;
-        desc = "Document Diagnostics (Trouble)";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>xX";
+      desc = "Document Diagnostics (Trouble)";
+    };
+    "<leader>xX" = {
       action = "<cmd>TroubleToggle workspace_diagnostics<cr>";
-      options = {
-        silent = true;
-        desc = "Workspace Diagnostics (Trouble)";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>xt";
+      desc = "Workspace Diagnostics (Trouble)";
+    };
+    "<leader>xt" = {
       action = "<cmd>TroubleToggle todo<cr>";
-      options = {
-        silent = true;
-        desc = "Todo (Trouble)";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>xQ";
-      action = "<cmd>TodoQuickFix<cr>";
-      options = {
-        silent = true;
-        desc = "Quickfix List (Trouble)";
-      };
-    }
-  ];
+      desc = "Todo (Trouble)";
+    };
+
+    "<leader>xq" = "<cmd>Trouble qflist toggle<cr>";
+    "<leader>xl" = "<cmd>Trouble loclist toggle<cr>";
+
+    "]q" = {
+      action.__raw = ''
+        function()
+          require('trouble').next({ skip_groups = true, jump = true })
+        end
+      '';
+    };
+    "[q" = {
+      action.__raw = ''
+        function()
+          require('trouble').previous({ skip_groups = true, jump = true })
+        end
+      '';
+    };
+  };
 }

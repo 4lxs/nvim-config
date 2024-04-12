@@ -1,4 +1,5 @@
-{ pkgs, svlib, ... }: {
+{ pkgs, svlib, ... }:
+{
   extraPlugins = [
     (pkgs.vimUtils.buildVimPlugin {
       pname = "competitest.nvim";

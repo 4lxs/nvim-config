@@ -19,28 +19,22 @@
       };
     };
     move = {
-      enable = false;
+      enable = true;
       gotoNextStart = {
-        "]f" = "@function.outer";
-        "]c" = "@class.outer";
-      };
-      gotoNextEnd = {
-        "]F" = "@function.outer";
-        "]C" = "@class.outer";
+        ")" = "@function.outer";
       };
       gotoPreviousStart = {
-        "[f" = "@function.outer";
-        "[c" = "@class.outer";
-      };
-      gotoPreviousEnd = {
-        "[F" = "@function.outer";
-        "[C" = "@class.outer";
+        "(" = "@function.outer";
       };
     };
     swap = {
-      enable = true;
-      swapNext = { "<leader>a" = "@parameters.inner"; };
-      swapPrevious = { "<leader>A" = "@parameter.outer"; };
+      enable = false;
+      swapNext = {
+        "<leader>a" = "@parameters.inner";
+      };
+      swapPrevious = {
+        "<leader>A" = "@parameter.outer";
+      };
     };
   };
 }

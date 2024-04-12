@@ -13,6 +13,8 @@
 
     ./git/gitsigns.nix
     ./git/fugitive.nix
+    ./git/neogit.nix
+    ./git/diffview.nix
 
     ./treesitter/treesitter.nix
     ./treesitter/treesitter-context.nix
@@ -33,7 +35,7 @@
     ./lsp/conform.nix
     ./lsp/fidget.nix
     ./lsp/lsp.nix
-    ./lsp/lspsaga.nix
+    # ./lsp/lspsaga.nix
     ./lsp/trouble.nix
 
     ./telescope/telescope.nix
@@ -46,6 +48,7 @@
     ./ui/oil.nix
     ./ui/lualine.nix
     ./ui/alpha.nix
+    ./ui/zen-mode.nix
 
     ./utils/flash.nix
     ./utils/hardtime.nix

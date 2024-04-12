@@ -13,48 +13,55 @@
         window = {
           completion = {
             border = "rounded";
-            winhighlight =
-              "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None";
+            winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None";
           };
-          documentation = { border = "rounded"; };
+          documentation = {
+            border = "rounded";
+          };
         };
 
         performance = {
-          fetchingTimeout = 200;
+          # fetchingTimeout = 200;
           maxViewEntries = 30;
         };
 
-        experimental = { ghost_text = true; };
-
-        mapping = {
-          "<tab>" =
-            "cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace })";
-          # "<Tab>" = ''
-          #   function(fallback)
-          #     if cmp.visible() then
-          #         cmp.select_next_item()
-          #     elseif luasnip.expand_or_jumpable() then
-          #         luasnip.expand_or_jump()
-          #     end
-          #   end
-          # '';
-          # "<S-Tab>" = ''
-          #   function(fallback)
-          #     if luasnip.jumpable(-1) then
-          #       luasnip.jump(-1)
-          #     end
-          #   end
-          # '';
-          # "<C-e>" = "cmp.mapping.scroll_docs(-4)";
-          "<C-f>" = "cmp.mapping.scroll_docs(4)";
-          "<c-n>" = "cmp.mapping(cmp.mapping.select_next_item())";
-          "<c-p>" = "cmp.mapping(cmp.mapping.select_prev_item())";
-          "<C-Space>" = "cmp.mapping.complete()";
+        experimental = {
+          ghost_text = true;
         };
 
+        mapping = {
+          "<Tab>" = ''
+            function(fallback)
+              local luasnip = require("luasnip")
+              local cmp = require("cmp")
+              if cmp.visible() then
+                if luasnip.expandable() then
+                  luasnip.expand()
+                else
+                  print("cmp complete")
+                  cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace })
+                end
+              elseif luasnip.jumpable(1) then
+                luasnip.jump(1)
+              end
+            end
+          '';
+          "<S-Tab>" = ''
+            function(fallback)
+              local luasnip = require("luasnip")
+              if luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+              end
+            end
+          '';
+          "<c-n>" = "cmp.mapping(cmp.mapping.select_next_item())";
+          "<c-p>" = "cmp.mapping(cmp.mapping.select_prev_item())";
+          "<c-e>" = "cmp.mapping.abort()";
+        };
+
+        # { name = "mkdnflow"; }
         sources = [
           { name = "nvim_lsp"; }
-          { name = "mkdnflow"; }
           { name = "buffer"; }
           { name = "copilot"; }
           { name = "path"; }

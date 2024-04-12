@@ -1,90 +1,70 @@
+{ svlib, ... }:
 {
   plugins.gitsigns = {
     enable = true;
-    trouble = true;
-    currentLineBlame = false;
+    settings = {
+      trouble = true;
+    };
   };
-  keymaps = [
-    {
-      mode = [ "n" "v" ];
-      key = "<leader>gh";
-      action = "gitsigns";
-      options = {
-        silent = true;
+  keymaps =
+    svlib.createKeymaps "n" {
+      "<leader>gh" = {
+        action = "";
         desc = "+hunks";
       };
-    }
-    {
-      mode = "n";
-      key = "<leader>ghb";
-      action = ":Gitsigns blame_line<CR>";
-      options = {
-        silent = true;
+      "<leader>ghb" = {
+        action = "<cmd>Gitsigns blame_line<CR>";
         desc = "Blame line";
       };
-    }
-    {
-      mode = "n";
-      key = "<leader>ghd";
-      action = ":Gitsigns diffthis<CR>";
-      options = {
-        silent = true;
+      "<leader>ghd" = {
+        action = "<cmd>Gitsigns diffthis<CR>";
         desc = "Diff This";
       };
-    }
-    {
-      mode = "n";
-      key = "<leader>ghp";
-      action = ":Gitsigns preview_hunk<CR>";
-      options = {
-        silent = true;
+      "<leader>ghp" = {
+        action = "<cmd>Gitsigns preview_hunk<CR>";
         desc = "Preview hunk";
       };
-    }
-    {
-      mode = "n";
-      key = "<leader>ghR";
-      action = ":Gitsigns reset_buffer<CR>";
-      options = {
-        silent = true;
+      "<leader>ghR" = {
+        action = "<cmd>Gitsigns reset_buffer<CR>";
         desc = "Reset Buffer";
       };
-    }
-    {
-      mode = [ "n" "v" ];
-      key = "<leader>ghr";
-      action = ":Gitsigns reset_hunk<CR>";
-      options = {
-        silent = true;
+      "<leader>ghr" = {
+        action = "<cmd>Gitsigns reset_hunk<CR>";
         desc = "Reset Hunk";
       };
-    }
-    {
-      mode = [ "n" "v" ];
-      key = "<leader>ghs";
-      action = ":Gitsigns stage_hunk<CR>";
-      options = {
-        silent = true;
+      "<leader>ghs" = {
+        action = "<cmd>Gitsigns stage_hunk<CR>";
         desc = "Stage Hunk";
       };
-    }
-    {
-      mode = "n";
-      key = "<leader>ghS";
-      action = ":Gitsigns stage_buffer<CR>";
-      options = {
-        silent = true;
+      "<leader>ghS" = {
+        action = "<cmd>Gitsigns stage_buffer<CR>";
         desc = "Stage Buffer";
       };
-    }
-    {
-      mode = "n";
-      key = "<leader>ghu";
-      action = ":Gitsigns undo_stage_hunk<CR>";
-      options = {
-        silent = true;
+      "<leader>ghu" = {
+        action = "<cmd>Gitsigns undo_stage_hunk<CR>";
         desc = "Undo Stage Hunk";
       };
+      "]h" = {
+        action = "<cmd>Gitsigns next_hunk<CR>";
+        desc = "Next Hunk";
+      };
+      "[h" = {
+        action = "<cmd>Gitsigns prev_hunk<CR>";
+        desc = "Previous Hunk";
+      };
     }
-  ];
+    ++ svlib.createKeymaps "v" {
+      "<leader>gh" = {
+        action = "";
+        desc = "+hunks";
+      };
+      "<leader>ghr" = {
+        action = "<cmd>Gitsigns reset_hunk<CR>";
+        desc = "Reset Hunk";
+      };
+      "<leader>ghs" = {
+        action = "<cmd>Gitsigns stage_hunk<CR>";
+        desc = "Stage Hunk";
+      };
+    };
 }

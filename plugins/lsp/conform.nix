@@ -2,13 +2,54 @@
   plugins.conform-nvim = {
     enable = true;
     notifyOnError = true;
+
+    formatOnSave = ''
+      function(bufnr)
+        -- Disable with a global or buffer-local variable
+        if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+          return
+        end
+        return { timeout_ms = 500, lsp_fallback = true }
+      end
+    '';
+
     formattersByFt = {
-      html = [[ "prettierd" "prettier" ]];
-      css = [[ "prettierd" "prettier" ]];
-      javascript = [[ "prettierd" "prettier" ]];
-      javascriptreact = [[ "prettierd" "prettier" ]];
-      typescript = [[ "prettierd" "prettier" ]];
-      typescriptreact = [[ "prettierd" "prettier" ]];
+      html = [
+        [
+          "prettierd"
+          "prettier"
+        ]
+      ];
+      css = [
+        [
+          "prettierd"
+          "prettier"
+        ]
+      ];
+      javascript = [
+        [
+          "prettierd"
+          "prettier"
+        ]
+      ];
+      javascriptreact = [
+        [
+          "prettierd"
+          "prettier"
+        ]
+      ];
+      typescript = [
+        [
+          "prettierd"
+          "prettier"
+        ]
+      ];
+      typescriptreact = [
+        [
+          "prettierd"
+          "prettier"
+        ]
+      ];
       java = [ "google-java-format" ];
       python = [ "black" ];
       lua = [ "stylua" ];
@@ -47,22 +88,13 @@
   ];
 
   extraConfigLua = ''
-    local conform = require("conform")
     local notify = require("notify")
-
-    conform.setup({
-      format_on_save = function(bufnr)
-      -- Disable with a global or buffer-local variable
-        if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-          return
-        end
-        return { timeout_ms = 500, lsp_fallback = true }
-      end,
-    })
 
     local function show_notification(message, level)
       notify(message, level, { title = "conform.nvim" })
     end
+
+    vim.g.disable_autoformat = true
 
     vim.api.nvim_create_user_command("FormatToggle", function(args)
       local is_global = not args.bang
