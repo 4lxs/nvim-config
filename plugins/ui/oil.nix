@@ -3,22 +3,10 @@
   plugins.oil = {
     enable = true;
     settings = {
-      useDefaultKeymaps = false;
-      deleteToTrash = true;
-      viewOptions = {
-        showHidden = true;
-      };
-      float = {
-        padding = 2;
-        maxWidth = 0; # ''math.ceil(vim.o.lines * 0.8 - 4)'';
-        maxHeight = 0; # ''math.ceil(vim.o.columns * 0.8)'';
-        border = "rounded"; # 'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
-        winOptions = {
-          winblend = 0;
-        };
-      };
-      preview = {
-        border = "rounded";
+      use_default_keymaps = false;
+      delete_to_trash = true;
+      view_options = {
+        show_hidden = true;
       };
       keymaps = {
         "g?" = "actions.show_help";
