@@ -59,9 +59,9 @@
           "<c-e>" = "cmp.mapping.abort()";
         };
 
-        # { name = "mkdnflow"; }
         sources = [
           { name = "nvim_lsp"; }
+          # { name = "mkdnflow"; }
           { name = "buffer"; }
           { name = "copilot"; }
           { name = "path"; }

@@ -1,8 +1,10 @@
-{ pkgs, ... }:
 {
   imports = [
     ./markdown-preview.nix
-    ./mkdnflow.nix
+    # ./mkdnflow.nix
+    ./vim-markdown.nix
+    ./headlines.nix
+    ./vim-table-mode.nix
   ];
 
   plugins = {
@@ -17,9 +19,4 @@
       enable = true;
     };
   };
-  extraPlugins = with pkgs.vimPlugins; [ headlines-nvim ];
-
-  extraConfigLua = ''
-    require('headlines').setup()
-  '';
 }
