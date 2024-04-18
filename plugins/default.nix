@@ -13,7 +13,7 @@
 
     ./git/gitsigns.nix
     ./git/fugitive.nix
-    ./git/neogit.nix
+    # ./git/neogit.nix
     ./git/diffview.nix
 
     ./treesitter/treesitter.nix
