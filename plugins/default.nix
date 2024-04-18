@@ -49,6 +49,7 @@
     ./ui/lualine.nix
     ./ui/alpha.nix
     ./ui/zen-mode.nix
+    ./ui/twilight.nix
 
     ./utils/flash.nix
     ./utils/hardtime.nix

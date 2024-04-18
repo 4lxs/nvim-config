@@ -78,7 +78,7 @@
 
     {
       mode = "v";
-      key = "<leader>cF";
+      key = "<leader>cf";
       action = "<cmd>lua require('conform').format()<cr>";
       options = {
         silent = true;

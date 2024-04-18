@@ -60,25 +60,17 @@
         };
 
         sources = [
+          { name = "git"; }
+          { name = "luasnip"; }
           { name = "nvim_lsp"; }
+          {
+            name = "copilot";
+            max_item_count = 1;
+          }
           # { name = "mkdnflow"; }
           { name = "buffer"; }
-          { name = "copilot"; }
           { name = "path"; }
-          { name = "luasnip"; }
         ];
-        # TODO: clangd_extensions doesn't work
-        # sorting.comparators = [
-        #   "require('cmp.config.compare').offset"
-        #   "require('cmp.config.compare').exact"
-        #   "require('cmp.config.compare').score"
-        #   "require('cmp.config.compare').recently_used"
-        #   "require('clangd_extensions.cmp_scores')" # not part of cmp
-        #   "require('cmp.config.compare').locality"
-        #   "require('cmp.config.compare').kind"
-        #   "require('cmp.config.compare').length"
-        #   "require('cmp.config.compare').order"
-        # ];
       };
     };
     cmp-nvim-lsp.enable = true; # lsp
@@ -87,5 +79,6 @@
     cmp-path.enable = true; # file system paths
     cmp_luasnip.enable = true; # snippets
     cmp-cmdline.enable = true; # autocomplete for cmdline
+    cmp-git.enable = true; # git issues, prs
   };
 }

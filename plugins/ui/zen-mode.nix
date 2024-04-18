@@ -2,10 +2,13 @@
 {
   plugins.zen-mode = {
     enable = true;
+    settings = {
+      plugins.twilight.enabled = true;
+    };
   };
 
   keymaps = svlib.createKeymaps "n" {
-    "<leader>z" = {
+    "<leader>uz" = {
       action = "<cmd>ZenMode<cr>";
       desc = "Zen Mode";
     };
