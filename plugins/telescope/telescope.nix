@@ -142,6 +142,10 @@
         action = "lsp_references, {}";
         options.desc = "Lsp references";
       };
+      "gi" = {
+        action = "lsp_implementations, {}";
+        options.desc = "Lsp implementations";
+      };
       "<leader>gb" = {
         action = "git_branches, {}";
         options.desc = "Git branches";

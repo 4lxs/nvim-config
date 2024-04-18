@@ -1,3 +1,4 @@
+{ svlib, ... }:
 {
   plugins = {
     lsp-format = {
@@ -89,10 +90,6 @@
             action = "code_action";
             desc = "Code Action";
           };
-          "<c-k>" = {
-            action = "signature_help";
-            desc = "Signature Help";
-          };
           # "<leader>cc" = {
           #   action = "code_lens.run";
           #   desc = "Code Lens";
@@ -101,6 +98,12 @@
           #   action = "code_lens.refresh";
           #   desc = "Refresh Code Lens";
           # };
+        };
+        extra = svlib.createKeymaps "i" {
+          "<c-k>" = {
+            action.__raw = "vim.lsp.buf.signature_help";
+            desc = "Signature Help";
+          };
         };
         diagnostic = {
           "<leader>cd" = {
