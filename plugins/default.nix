@@ -23,6 +23,7 @@
 
     ./cp/competitest.nix
 
+    ./languages/json.nix
     ./languages/rust.nix
     ./languages/markdown
     ./languages/nix.nix

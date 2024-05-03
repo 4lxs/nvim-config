@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   imports = [
     ./markdown-preview.nix
@@ -8,13 +9,23 @@
   ];
 
   plugins = {
-    conform-nvim.formattersByFt.markdown = [
-      [
-        "prettierd"
-        "prettier"
-      ]
-    ];
-    lint.lintersByFt.markdown = [ "markdownlint" ];
+    conform-nvim = {
+      formatters = {
+        prettierd.command = "${pkgs.prettierd}/bin/prettierd";
+        markdownlint.command = "${pkgs.markdownlint-cli}/bin/markdownlint";
+      };
+      formattersByFt.markdown = [
+        [
+          "prettierd"
+          "prettier"
+          "markdownlint"
+        ]
+      ];
+    };
+    lint = {
+      linters.markdownlint.cmd = "${pkgs.markdownlint-cli}/bin/markdownlint";
+      lintersByFt.markdown = [ "markdownlint" ];
+    };
     lsp.servers.marksman = {
       enable = true;
     };

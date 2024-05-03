@@ -9,6 +9,12 @@
         if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
           return
         end
+
+        local bufname = vim.api.nvim_buf_get_name(bufnr)
+        if bufname:match("/code/") then
+          return
+        end
+
         return { timeout_ms = 500, lsp_fallback = true }
       end
     '';

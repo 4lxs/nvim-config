@@ -55,10 +55,6 @@
             default = nvim;
           };
 
-          devShells = {
-            default = import ./shell.nix { inherit pkgs; };
-          };
-
           formatter = inputs.nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
         };
     };
