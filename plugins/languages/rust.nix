@@ -2,28 +2,13 @@
   plugins = {
     rustaceanvim = {
       enable = true;
-      server = {
-        settings = {
-          check = {
-            command = "clippy";
-            extraArgs = [ "--no-deps" ];
-            features = "all";
-          };
-          cargo = {
-            features = "all";
-          };
-          procMacro = {
-            enable = true;
-          };
-        };
-      };
     };
     lsp.servers = {
-      rust-analyzer = {
-        enable = true;
-        installCargo = true;
-        installRustc = true;
-      };
+      # rust-analyzer = {
+      #   enable = true;
+      #   installCargo = true;
+      #   installRustc = true;
+      # };
       taplo = {
         enable = true;
       };
@@ -33,4 +18,17 @@
     };
     conform-nvim.formattersByFt.rust = [ "rustfmt" ];
   };
+  # autoCmd = [
+  #   {
+  #     event = [ "FileType" ];
+  #     pattern = [ "rust" ];
+  #     callback.__raw = ''
+  #       function(arg)
+  #         vim.keymap.set( "n", "<leader>a", function()
+  #           vim.cmd.RustLsp('codeAction')
+  #         end, { silent = true, buffer = arg.buf } )
+  #       end
+  #     '';
+  #   }
+  # ];
 }
