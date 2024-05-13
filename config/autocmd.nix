@@ -1,10 +1,10 @@
 {
   autoCmd = [
     # Remove trailing whitespace on save
-    {
-      event = "BufWrite";
-      command = "%s/\\s\\+$//e";
-    }
+    # {
+    #   event = "BufWrite";
+    #   command = "%s/\\s\\+$//e";
+    # }
 
     # Open help in a vertical split
     {

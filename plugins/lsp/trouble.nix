@@ -22,7 +22,7 @@
       desc = "Todo (Trouble)";
     };
 
-    "<leader>xq" = "<cmd>Trouble qflist toggle<cr>";
+    "<leader>xq" = "<cmd>Trouble quickfix toggle<cr>";
     "<leader>xl" = "<cmd>Trouble loclist toggle<cr>";
 
     "]q" = {
