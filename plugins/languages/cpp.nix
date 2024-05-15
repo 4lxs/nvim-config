@@ -1,10 +1,12 @@
-{ pkgs, options, ... }:
+{ pkgs, ... }:
 {
   plugins = {
+    # lint.lintersByFt.cpp = [ "cppcheck" "cpplint" ];
+    conform-nvim.formattersByFt.cpp = [ "clang-format" ];
     lsp.servers.clangd = {
       enable = true;
       cmd = [
-        "${options.plugins.lsp.servers.clangd.package.default}/bin/clangd"
+        "clangd"
         # "--header-insertion=never"
         "--header-insertion=iwyu"
         "--background-index"
@@ -17,6 +19,9 @@
       ];
       onAttach.function = ''
         vim.keymap.set('n', 'go', "<cmd>ClangdSwitchSourceHeader<cr>", { desc = "Switch Source/Header (C/C++)", buffer = bufnr })
+
+        require("clangd_extensions.inlay_hints").setup_autocmd()
+        require("clangd_extensions.inlay_hints").set_inlay_hints()
       '';
       extraOptions = {
         init_options = {
