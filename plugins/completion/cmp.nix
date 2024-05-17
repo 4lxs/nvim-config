@@ -72,6 +72,15 @@
           { name = "path"; }
         ];
       };
+
+      filetype = {
+        sql = {
+          sources = [
+            { name = "buffer"; }
+            { name = "vim-dadbod-completion"; }
+          ];
+        };
+      };
     };
     cmp-nvim-lsp.enable = true; # lsp
     cmp-buffer.enable = true;

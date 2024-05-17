@@ -1,7 +1,9 @@
 {
   plugins.treesitter-context = {
     enable = true;
-    # maxLines = 5;
-    multilineThreshold = 1;
+    settings = {
+      # maxLines = 5;
+      multilineThreshold = 1;
+    };
   };
 }

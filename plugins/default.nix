@@ -68,5 +68,6 @@
     ./utils/whichkey.nix
     ./utils/tmux-navigator.nix
     ./utils/sleuth.nix
+    ./utils/dadbod.nix
   ];
 }

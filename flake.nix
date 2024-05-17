@@ -21,7 +21,7 @@
       ];
 
       perSystem =
-        { pkgs, system, ... }:
+        { self', pkgs, system, ... }:
         let
           nixvimLib = nixvim.lib.${system};
           nixvim' = nixvim.legacyPackages.${system};
@@ -55,7 +55,15 @@
             default = nvim;
           };
 
-          formatter = inputs.nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
+          devShells.default =
+            pkgs.mkShell {
+              packages = [ self'.formatter ];
+
+              shellHook = ''
+              # export DEBUG=1
+              '';
+            };
+          formatter = pkgs.nixfmt-rfc-style;
         };
     };
 }

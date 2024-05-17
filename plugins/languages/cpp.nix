@@ -34,6 +34,10 @@
     clangd-extensions = {
       enable = true;
       extraOptions = {
+        inlay_hints = {
+          inline = false;
+          # show_parameter_hints = false;
+        };
         codelens.enable = true;
       };
       ast = {
