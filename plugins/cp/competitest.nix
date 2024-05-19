@@ -1,44 +1,46 @@
-{ pkgs, svlib, ... }:
+{ svlib, ... }:
 {
-  extraPlugins = with pkgs.vimPlugins; [ competitest-nvim ];
-
-  extraConfigLua = ''
-    require('competitest').setup {
-      received_problems_path = vim.env.HOME .. "/Projects/cp/problems/$(JUDGE)/$(CONTEST)/$(PROBLEM)/main.$(FEXT)",
-      template_file = vim.env.HOME .. "/Projects/cp/templates/template.$(FEXT)",
-      evaluate_template_modifiers = true,
+  plugins.competitest = {
+    enable = true;
+    settings = {
+      received_problems_path = "$(HOME)/Projects/cp/problems/$(JUDGE)/$(CONTEST)/$(PROBLEM)/main.$(FEXT)";
+      template_file = "$(HOME)/Projects/cp/templates/template.$(FEXT)";
+      evaluate_template_modifiers = true;
       compile_command = {
         cpp = {
-          exec = "g++",
-          args = {
-            "-DLOCAL",
-            "$(FNAME)",
-            "-o",
-            "$(FNOEXT)",
-            "-Wall",
-            "-Wextra",
-            "-pedantic",
-            "-std=c++17",
-            "-O2",
-            "-Wshadow",
-            "-Wformat=2",
-            "-Wfloat-equal",
-            "-Wshift-overflow",
-            "-Wcast-qual",
-            "-Wcast-align",
-            "-D_GLIBCXX_DEBUG",
-            "-D_GLIBCXX_DEBUG_PEDANTIC",
-            "-fsanitize=address",
-            "-fsanitize=undefined",
-            "-fno-sanitize-recover",
-            "-fstack-protector",
-          },
-        },
-      },
-    }
-  '';
+          exec = "g++";
+          args = [
+            "-DLOCAL"
+            "$(FNAME)"
+            "-o"
+            "$(FNOEXT)"
+            "-Wall"
+            "-Wextra"
+            "-pedantic"
+            "-std=c++17"
+            "-O2"
+            "-Wshadow"
+            "-Wformat=2"
+            "-Wfloat-equal"
+            "-Wshift-overflow"
+            "-Wcast-qual"
+            "-Wcast-align"
+            "-D_GLIBCXX_DEBUG"
+            "-D_GLIBCXX_DEBUG_PEDANTIC"
+            "-fsanitize=address"
+            "-fsanitize=undefined"
+            "-fno-sanitize-recover"
+            "-fstack-protector"
+          ];
+        };
+      };
+    };
+  };
 
   keymaps = svlib.createKeymaps "n" {
+    "<leader>ct" = {
+      action = "+CompetiTest";
+    };
     "<leader>ctr" = {
       action = "<cmd>CompetiTest receive problem<cr>";
       desc = "CompetiTest receive problem";
