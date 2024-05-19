@@ -30,4 +30,12 @@
       enable = true;
     };
   };
+
+  autoCmd = [
+    {
+      event = [ "FileType" ];
+      pattern = [ "markdown" ];
+      command = "setlocal tw=80";
+    }
+  ];
 }

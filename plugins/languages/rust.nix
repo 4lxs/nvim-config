@@ -17,6 +17,21 @@
       name = "rust-analyzer";
     };
     conform-nvim.formattersByFt.rust = [ "rustfmt" ];
+    crates-nvim = {
+      enable = true;
+      extraOptions = {
+        lsp = {
+          enabled = true;
+          actions = true;
+          completion = true;
+          hover = true;
+        };
+        completion = {
+          cmp.enabled = true;
+          crates.enabled = true;
+        };
+      };
+    };
   };
   # autoCmd = [
   #   {

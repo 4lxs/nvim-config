@@ -4,6 +4,28 @@
       enable = true;
       autoEnableSources = true;
 
+      cmdline = {
+        "/" = {
+          mapping.__raw = "cmp.mapping.preset.cmdline()";
+          sources = [ { name = "buffer"; } ];
+        };
+        ":" = {
+          mapping.__raw = "cmp.mapping.preset.cmdline()";
+          sources = [
+            { name = "path"; }
+            {
+              name = "cmdline";
+              option = {
+                ignore_cmds = [
+                  "Man"
+                  "!"
+                ];
+              };
+            }
+          ];
+        };
+      };
+
       settings = {
         snippet.expand = ''
           function(args)
@@ -63,6 +85,7 @@
           { name = "git"; }
           { name = "luasnip"; }
           { name = "nvim_lsp"; }
+          { name = "crates"; }
           {
             name = "copilot";
             max_item_count = 1;

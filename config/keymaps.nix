@@ -62,6 +62,11 @@
         action = "<cmd>tabc<cr>";
         desc = "Close tab";
       };
+
+      "<leader>nt" = {
+        action = "<cmd>exe 'e ~/.local/cloud/Notes/diary/'.strftime('%Y-%m-%d.md')<cr>";
+        desc = "New daily note";
+      };
     }
     ++ svlib.createKeymaps "i" {
       # tab should be for completion ONLY

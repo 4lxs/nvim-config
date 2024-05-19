@@ -41,28 +41,27 @@
 
     ./telescope/telescope.nix
 
-    ./ui/dressing-nvim.nix
+    # ./ui/dressing-nvim.nix
     ./ui/indent-blankline.nix
-    ./ui/noice.nix
-    ./ui/nvim-notify.nix
+    # ./ui/noice.nix
+    # ./ui/nvim-notify.nix
     ./ui/nui.nix
     ./ui/oil.nix
     ./ui/lualine.nix
-    ./ui/alpha.nix
+    # ./ui/alpha.nix
     ./ui/zen-mode.nix
     ./ui/twilight.nix
 
     ./utils/flash.nix
-    ./utils/hardtime.nix
     ./utils/harpoon.nix
     ./utils/mini.nix
     ./utils/neodev.nix
     ./utils/neotest.nix
-    ./utils/nvim-colorizer.nix
+    # ./utils/nvim-colorizer.nix
     ./utils/nvim-surround.nix
     ./utils/persistence.nix
     ./utils/plenary.nix
-    ./utils/todo-comments.nix
+    # ./utils/todo-comments.nix
     ./utils/ultimate-autopair.nix
     ./utils/undotree.nix
     ./utils/whichkey.nix

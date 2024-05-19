@@ -94,10 +94,11 @@
   ];
 
   extraConfigLua = ''
-    local notify = require("notify")
+    -- local notify = require("notify")
 
     local function show_notification(message, level)
-      notify(message, level, { title = "conform.nvim" })
+      -- notify(message, level, { title = "conform.nvim" })
+      vim.notify(message, level)
     end
 
     vim.g.disable_autoformat = true

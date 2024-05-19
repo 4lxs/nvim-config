@@ -1,6 +1,7 @@
 {
   plugins.telescope = {
     enable = true;
+
     extensions = {
       fzf-native.enable = true;
       ui-select = {
@@ -12,7 +13,7 @@
       };
       undo.enable = true;
     };
-    # If you'd prefer Telescope not to enter a normal-like mode when hitting escape (and instead exiting), you can map <Esc> to do so via:
+
     settings.defaults = {
       mappings = {
         i = {
@@ -40,8 +41,23 @@
           };
         };
       };
+
+      # trim leading whitespace from grep
+      vimgrep_arguments = [
+        "rg"
+        "--color=never"
+        "--no-heading"
+        "--with-filename"
+        "--line-number"
+        "--column"
+        "--smart-case"
+        "--trim"
+      ];
     };
+
     keymaps = {
+
+      # files
       "<leader><space>" = {
         action = "find_files, {}";
         options.desc = "Find project files";
@@ -50,25 +66,19 @@
         action = "live_grep";
         options.desc = "Grep (root dir)";
       };
-      "<leader>:" = {
-        action = "command_history, {}";
-        options.desc = "Command History";
-      };
       "<leader>fr" = {
         action = "oldfiles, {}";
         options.desc = "Recent";
       };
+
+      # vim
+      "<leader>:" = {
+        action = "command_history, {}";
+        options.desc = "Command History";
+      };
       "<leader>fb" = {
         action = "buffers, {}";
         options.desc = "Buffers";
-      };
-      "<leader>fgc" = {
-        action = "git_commits, {}";
-        options.desc = "Commits";
-      };
-      "<leader>fgs" = {
-        action = "git_status, {}";
-        options.desc = "Status";
       };
       "<leader>fa" = {
         action = "autocommands, {}";
@@ -81,14 +91,6 @@
       "<leader>fC" = {
         action = "commands, {}";
         options.desc = "Commands";
-      };
-      "<leader>fx" = {
-        action = "diagnostics, { bufnr = 0 }";
-        options.desc = "Workspace diagnostics";
-      };
-      "<leader>fX" = {
-        action = "diagnostics, {}";
-        options.desc = "Workspace diagnostics";
       };
       "<leader>fh" = {
         action = "help_tags, {}";
@@ -122,6 +124,30 @@
         action = "colorscheme, {}";
         options.desc = "Colorscheme preview";
       };
+
+      # git
+      "<leader>gb" = {
+        action = "git_branches, {}";
+        options.desc = "Git branches";
+      };
+      "<leader>fgc" = {
+        action = "git_commits, {}";
+        options.desc = "Commits";
+      };
+      "<leader>fgs" = {
+        action = "git_status, {}";
+        options.desc = "Status";
+      };
+
+      # lsp
+      "<leader>fx" = {
+        action = "diagnostics, { bufnr = 0 }";
+        options.desc = "Workspace diagnostics";
+      };
+      "<leader>fX" = {
+        action = "diagnostics, {}";
+        options.desc = "Workspace diagnostics";
+      };
       "<leader>ss" = {
         action = "lsp_document_symbols, {}";
         options.desc = "Lsp document symbols";
@@ -145,10 +171,6 @@
       "gi" = {
         action = "lsp_implementations, {}";
         options.desc = "Lsp implementations";
-      };
-      "<leader>gb" = {
-        action = "git_branches, {}";
-        options.desc = "Git branches";
       };
     };
   };
