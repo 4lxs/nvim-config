@@ -23,7 +23,6 @@
             {
               inherit key mode;
               inherit (val) action;
-              lua = val.lua or false;
               options = {
                 noremap = true;
                 silent = true;

@@ -2,7 +2,7 @@
 {
   plugins = {
     nix.enable = true;
-    lsp.servers.nil_ls.enable = true;
+    lsp.servers.nil-ls.enable = true;
     conform-nvim = {
       # formatters.nixfmt.command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
       formattersByFt.nix = [ ["alejandra"] ["nixfmt"] ];

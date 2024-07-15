@@ -59,7 +59,7 @@
 
       # files
       "<leader><space>" = {
-        action = "find_files, {}";
+        action = "find_files";
         options.desc = "Find project files";
       };
       "<leader>/" = {
@@ -67,75 +67,75 @@
         options.desc = "Grep (root dir)";
       };
       "<leader>fr" = {
-        action = "oldfiles, {}";
+        action = "oldfiles";
         options.desc = "Recent";
       };
 
       # vim
       "<leader>:" = {
-        action = "command_history, {}";
+        action = "command_history";
         options.desc = "Command History";
       };
       "<leader>fb" = {
-        action = "buffers, {}";
+        action = "buffers";
         options.desc = "Buffers";
       };
       "<leader>fa" = {
-        action = "autocommands, {}";
+        action = "autocommands";
         options.desc = "Auto Commands";
       };
       "<leader>fc" = {
-        action = "command_history, {}";
+        action = "command_history";
         options.desc = "Command History";
       };
       "<leader>fC" = {
-        action = "commands, {}";
+        action = "commands";
         options.desc = "Commands";
       };
       "<leader>fh" = {
-        action = "help_tags, {}";
+        action = "help_tags";
         options.desc = "Help pages";
       };
       "<leader>fH" = {
-        action = "highlights, {}";
+        action = "highlights";
         options.desc = "Search Highlight Groups";
       };
       "<leader>fk" = {
-        action = "keymaps, {}";
+        action = "keymaps";
         options.desc = "Keymaps";
       };
       "<leader>fM" = {
-        action = "man_pages, {}";
+        action = "man_pages";
         options.desc = "Man pages";
       };
       "<leader>fm" = {
-        action = "marks, {}";
+        action = "marks";
         options.desc = "Jump to Mark";
       };
       "<leader>fo" = {
-        action = "vim_options, {}";
+        action = "vim_options";
         options.desc = "Options";
       };
       "<leader>fR" = {
-        action = "resume, {}";
+        action = "resume";
         options.desc = "Resume";
       };
       "<leader>uC" = {
-        action = "colorscheme, {}";
+        action = "colorscheme";
         options.desc = "Colorscheme preview";
       };
 
       # git
       "<leader>gb" = {
-        action = "git_branches, {}";
+        action = "git_branches";
         options.desc = "Git branches";
       };
       "<leader>fgc" = {
-        action = "git_commits, {}";
+        action = "git_commits";
         options.desc = "Commits";
       };
       "<leader>fgs" = {
-        action = "git_status, {}";
+        action = "git_status";
         options.desc = "Status";
       };
 
@@ -145,31 +145,31 @@
         options.desc = "Workspace diagnostics";
       };
       "<leader>fX" = {
-        action = "diagnostics, {}";
+        action = "diagnostics";
         options.desc = "Workspace diagnostics";
       };
       "<leader>ss" = {
-        action = "lsp_document_symbols, {}";
+        action = "lsp_document_symbols";
         options.desc = "Lsp document symbols";
       };
       "<leader>sS" = {
-        action = "lsp_dynamic_workspace_symbols, {}";
+        action = "lsp_dynamic_workspace_symbols";
         options.desc = "Lsp workspace symbols";
       };
       "gd" = {
-        action = "lsp_definitions, {}";
+        action = "lsp_definitions";
         options.desc = "Lsp definitions";
       };
       "gy" = {
-        action = "lsp_type_definitions, {}";
+        action = "lsp_type_definitions";
         options.desc = "Lsp type definitions";
       };
       "gr" = {
-        action = "lsp_references, {}";
+        action = "lsp_references";
         options.desc = "Lsp references";
       };
       "gi" = {
-        action = "lsp_implementations, {}";
+        action = "lsp_implementations";
         options.desc = "Lsp implementations";
       };
     };

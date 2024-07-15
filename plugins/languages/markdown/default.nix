@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   imports = [
     ./markdown-preview.nix
@@ -12,19 +12,28 @@
     conform-nvim = {
       formatters = {
         prettierd.command = "${pkgs.prettierd}/bin/prettierd";
-        markdownlint.command = "${pkgs.markdownlint-cli}/bin/markdownlint";
+        markdownlint-cli2.command = "${pkgs.markdownlint-cli2}/bin/markdownlint";
       };
       formattersByFt.markdown = [
         [
           "prettierd"
           "prettier"
-          "markdownlint"
+          "markdownlint-cli2"
         ]
       ];
     };
     lint = {
-      linters.markdownlint.cmd = "${pkgs.markdownlint-cli}/bin/markdownlint";
-      lintersByFt.markdown = [ "markdownlint" ];
+      customLinters.mdl = {
+        cmd = "${pkgs.markdownlint-cli2}/bin/markdownlint-cli2";
+        ignore_exitcode = true;
+        stream = "stderr";
+        parser = ''
+          require("lint.parser").from_errorformat(efm, {
+            source = "markdownlint",
+            severity = vim.diagnostic.severity.WARN,
+          })'';
+      };
+      lintersByFt.markdown = [ "mdl" ];
     };
     lsp.servers.marksman = {
       enable = true;

@@ -8,6 +8,12 @@
       enable = true;
       capabilities = "offsetEncoding =  'utf-16'";
       servers = {
+        slint-lsp = {
+          enable = true;
+          filetypes = [
+            "slint"
+          ];
+        };
         lua-ls = {
           enable = true;
           extraOptions = {
@@ -25,44 +31,6 @@
               };
             };
           };
-        };
-        tsserver = {
-          enable = false;
-          filetypes = [
-            "javascript"
-            "javascriptreact"
-            "typescript"
-            "typescriptreact"
-          ];
-          extraOptions = {
-            settings = {
-              javascript = {
-                inlayHints = {
-                  includeInlayEnumMemberValueHints = true;
-                  includeInlayFunctionLikeReturnTypeHints = true;
-                  includeInlayFunctionParameterTypeHints = true;
-                  includeInlayParameterNameHints = "all";
-                  includeInlayParameterNameHintsWhenArgumentMatchesName = true;
-                  includeInlayPropertyDeclarationTypeHints = true;
-                  includeInlayVariableTypeHints = true;
-                };
-              };
-              typescript = {
-                inlayHints = {
-                  includeInlayEnumMemberValueHints = true;
-                  includeInlayFunctionLikeReturnTypeHints = true;
-                  includeInlayFunctionParameterTypeHints = true;
-                  includeInlayParameterNameHints = "all";
-                  includeInlayParameterNameHintsWhenArgumentMatchesName = true;
-                  includeInlayPropertyDeclarationTypeHints = true;
-                  includeInlayVariableTypeHints = true;
-                };
-              };
-            };
-          };
-        };
-        eslint = {
-          enable = true;
         };
         pyright = {
           enable = true;
@@ -144,5 +112,24 @@
     require('lspconfig.ui.windows').default_options = {
       border = _border
     }
+
+
+    vim.filetype.add({
+      -- Detect and assign filetype based on the extension of the filename
+      extension = {
+        slint = "slint",
+      },
+      -- Detect and apply filetypes based on the entire filename
+      filename = {
+        [".env"] = "dotenv",
+        ["env"] = "dotenv",
+        ["tsconfig.json"] = "jsonc",
+      },
+      -- Detect and apply filetypes based on certain patterns of the filenames
+      pattern = {
+        -- INFO: Match filenames like - ".env.example", ".env.local" and so on
+        -- ["%.env%.[%w_.-]+"] = "dotenv",
+      },
+    })
   '';
 }
