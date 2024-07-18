@@ -2,9 +2,11 @@
 {
   plugins.flash = {
     enable = true;
-    modes = {
-      search.enabled = false;
-      char.enabled = true;
+    settings = {
+      modes = {
+        search.enabled = false;
+        char.enabled = true;
+      };
     };
   };
 

@@ -5,8 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
 
-    # nixvim.url = "github:nix-community/nixvim";
-    nixvim.url = "git+file:///home/svl/Projects/nixvim?ref=lint";
+    nixvim.url = "github:nix-community/nixvim";
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
@@ -33,7 +32,7 @@
                 ./config
                 ./plugins
               ];
-              package = pkgs.neovim-nightly;
+              package = inputs.neovim-nightly-overlay.packages.${system}.default;
             };
             extraSpecialArgs = {
               svlib = pkgs.callPackage ./lib { };
@@ -44,7 +43,7 @@
         {
           _module.args.pkgs = import inputs.nixpkgs {
             inherit system;
-            overlays = [ inputs.neovim-nightly-overlay.overlay ];
+            overlays = [ inputs.neovim-nightly-overlay.overlays.default ];
           };
           checks = {
             # Run `nix flake check .` to verify that your config is not broken

@@ -23,14 +23,15 @@
 
     ./cp/competitest.nix
 
+    ./dap/dap.nix
+    ./languages/cpp.nix
     ./languages/json.nix
-    ./languages/rust.nix
+    ./languages/log.nix
     ./languages/markdown
     ./languages/nix.nix
-    ./languages/cpp.nix
-    ./languages/log.nix
     ./languages/ocaml
-    ./dap/dap.nix
+    ./languages/rust.nix
+    ./languages/ts.nix
 
     ./lsp/nvim-lint.nix
     ./lsp/conform.nix
@@ -62,7 +63,8 @@
     ./utils/persistence.nix
     ./utils/plenary.nix
     # ./utils/todo-comments.nix
-    ./utils/ultimate-autopair.nix
+    # ./utils/ultimate-autopair.nix
+    ./utils/nvim-autopairs.nix
     ./utils/undotree.nix
     ./utils/whichkey.nix
     ./utils/tmux-navigator.nix

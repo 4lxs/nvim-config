@@ -1,9 +1,19 @@
 {
   plugins.treesitter = {
     enable = true;
-    indent = true;
     folding = true;
     nixvimInjections = true;
-    ensureInstalled = "all";
+    settings = {
+      highlight.enable = true;
+      incremental_selection.enable = true;
+      indent = {
+        enable = true;
+        disable = [
+          "c"
+          "cpp"
+        ];
+      };
+      ensureInstalled = "all";
+    };
   };
 }
