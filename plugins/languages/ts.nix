@@ -27,6 +27,7 @@
             "javascriptreact"
             "typescript"
             "typescriptreact"
+            "html"
             "svelte"
           ];
         };
@@ -84,6 +85,7 @@
           "typescript"
           "typescriptreact"
           "svelte"
+          "html"
         ];
 
       };
@@ -91,6 +93,20 @@
         enable = true;
         cmd = [
           (lib.getExe pkgs.tailwindcss-language-server)
+          "--stdio"
+        ];
+      };
+      html = {
+        enable = true;
+        cmd = [
+          "${pkgs.vscode-langservers-extracted}/bin/vscode-html-language-server"
+          "--stdio"
+        ];
+      };
+      cssls = {
+        enable = true;
+        cmd = [
+          "${pkgs.vscode-langservers-extracted}/bin/vscode-css-language-server"
           "--stdio"
         ];
       };
