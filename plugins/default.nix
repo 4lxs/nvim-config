@@ -24,7 +24,9 @@
     ./cp/competitest.nix
 
     ./dap/dap.nix
+    ./languages/cmake.nix
     ./languages/cpp.nix
+    ./languages/glsl.nix
     ./languages/json.nix
     ./languages/log.nix
     ./languages/markdown

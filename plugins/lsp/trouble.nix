@@ -10,19 +10,14 @@
   keymaps = svlib.createKeymaps "n" {
     "<leader>x" = "+diagnostics/quickfix";
     "<leader>xx" = {
-      action = "<cmd>TroubleToggle<cr>";
+      action = "<cmd>Trouble diagnostics toggle<cr>";
       desc = "Document Diagnostics (Trouble)";
     };
     "<leader>xX" = {
-      action = "<cmd>TroubleToggle workspace_diagnostics<cr>";
-      desc = "Workspace Diagnostics (Trouble)";
+      action = "<cmd>Trouble diagnostics toggle filter.buf=0<cr>";
+      desc = "Buffer Diagnostics (Trouble)";
     };
-    "<leader>xt" = {
-      action = "<cmd>TroubleToggle todo<cr>";
-      desc = "Todo (Trouble)";
-    };
-
-    "<leader>xq" = "<cmd>Trouble quickfix toggle<cr>";
+    "<leader>xq" = "<cmd>Trouble qflist toggle<cr>";
     "<leader>xl" = "<cmd>Trouble loclist toggle<cr>";
 
     "]q" = {
