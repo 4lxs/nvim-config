@@ -1,6 +1,6 @@
 {
   plugins = {
-    conform-nvim.formattersByFt.cpp = [ "clang-format" ];
+    conform-nvim.settings.formatters_by_ft.cpp = [ "clang-format" ];
     lsp.servers.clangd = {
       enable = true;
       cmd = [

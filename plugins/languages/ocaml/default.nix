@@ -2,9 +2,10 @@
 {
   plugins.lsp.servers.ocamllsp = {
     enable = true;
+    package = pkgs.ocamlPackages.lsp;
   };
   plugins.conform-nvim = {
-    formatters.ocamlformat.command = "${pkgs.ocamlformat}/bin/ocamlformat";
-    formattersByFt.ocaml = [ "ocamlformat" ];
+    settings.formatters.ocamlformat.command = "${pkgs.ocamlformat}/bin/ocamlformat";
+    settings.formatters_by_ft.ocaml = [ "ocamlformat" ];
   };
 }

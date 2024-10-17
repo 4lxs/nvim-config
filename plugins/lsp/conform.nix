@@ -1,28 +1,31 @@
 {
   plugins.conform-nvim = {
     enable = true;
-    notifyOnError = true;
 
-    formatOnSave = ''
-      function(bufnr)
-        -- Disable with a global or buffer-local variable
-        if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-          return
+    settings = {
+      notifyOnError = true;
+
+      format_on_save = ''
+        function(bufnr)
+          -- Disable with a global or buffer-local variable
+          if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+            return
+          end
+
+          local bufname = vim.api.nvim_buf_get_name(bufnr)
+          if bufname:match("/code/") then
+            return
+          end
+
+          return { timeout_ms = 500, lsp_fallback = true }
         end
+      '';
 
-        local bufname = vim.api.nvim_buf_get_name(bufnr)
-        if bufname:match("/code/") then
-          return
-        end
-
-        return { timeout_ms = 500, lsp_fallback = true }
-      end
-    '';
-
-    formattersByFt = {
-      java = [ "google-java-format" ];
-      python = [ "black" ];
-      lua = [ "stylua" ];
+      settings.formatters_by_ft = {
+        java = [ "google-java-format" ];
+        python = [ "black" ];
+        lua = [ "stylua" ];
+      };
     };
   };
 

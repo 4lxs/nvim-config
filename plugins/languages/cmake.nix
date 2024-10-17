@@ -17,8 +17,8 @@
     ];
 
     conform-nvim = {
-      formattersByFt.cmake = [ "cmake_format" ];
-      formatters.cmake_format.cmd = "${pkgs.cmake-format}/bin/cmake-format";
+      settings.formatters_by_ft.cmake = [ "cmake_format" ];
+      settings.formatters.cmake_format.cmd = "${pkgs.cmake-format}/bin/cmake-format";
     };
   };
 

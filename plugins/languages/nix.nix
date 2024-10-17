@@ -2,10 +2,10 @@
 {
   plugins = {
     nix.enable = true;
-    lsp.servers.nil-ls.enable = true;
+    lsp.servers.nil_ls.enable = true;
     conform-nvim = {
-      # formatters.nixfmt.command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
-      formattersByFt.nix = [ ["alejandra"] ["nixfmt"] ];
+      # settings.formatters.nixfmt.command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
+      settings.formatters_by_ft.nix = [ ["alejandra"] ["nixfmt"] ];
     };
     lint = {
       lintersByFt.nix = [ "statix" ];

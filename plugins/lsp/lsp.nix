@@ -8,13 +8,13 @@
       enable = true;
       capabilities = "offsetEncoding =  'utf-16'";
       servers = {
-        slint-lsp = {
+        slint_lsp = {
           enable = true;
           filetypes = [
             "slint"
           ];
         };
-        lua-ls = {
+        lua_ls = {
           enable = true;
           extraOptions = {
             settings = {
@@ -35,7 +35,7 @@
         pyright = {
           enable = true;
         };
-        ruff-lsp = {
+        ruff_lsp = {
           enable = true;
         };
       };

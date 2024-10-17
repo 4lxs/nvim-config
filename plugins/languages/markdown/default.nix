@@ -10,11 +10,11 @@
 
   plugins = {
     conform-nvim = {
-      formatters = {
+      settings.formatters = {
         prettierd.command = "${pkgs.prettierd}/bin/prettierd";
         markdownlint-cli2.command = "${pkgs.markdownlint-cli2}/bin/markdownlint";
       };
-      formattersByFt.markdown = [
+      settings.formatters_by_ft.markdown = [
         [
           "prettierd"
           "prettier"

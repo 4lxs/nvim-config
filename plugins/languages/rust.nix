@@ -16,7 +16,7 @@
     fidget.progress.display.overrides.rust_analyzer = {
       name = "rust-analyzer";
     };
-    conform-nvim.formattersByFt.rust = [ "rustfmt" ];
+    conform-nvim.settings.formatters_by_ft.rust = [ "rustfmt" ];
     crates-nvim = {
       enable = true;
       extraOptions = {

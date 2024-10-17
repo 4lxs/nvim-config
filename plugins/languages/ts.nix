@@ -37,7 +37,7 @@
       svelte = {
         enable = true;
       };
-      tsserver = {
+      ts_ls = {
         enable = true;
         filetypes = [
           "javascript"
@@ -111,7 +111,7 @@
         ];
       };
     };
-    conform-nvim.formattersByFt = {
+    conform-nvim.settings.formatters_by_ft = {
       html = [
         [
           "prettierd"
