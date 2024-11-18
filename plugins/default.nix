@@ -34,6 +34,7 @@
     ./languages/ocaml
     ./languages/rust.nix
     ./languages/ts.nix
+    ./languages/haskell.nix
 
     ./lsp/nvim-lint.nix
     ./lsp/conform.nix

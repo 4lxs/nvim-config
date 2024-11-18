@@ -14,6 +14,7 @@
         ];
       };
       ensureInstalled = "all";
+      ignore_install = [ "haskell" "haskell_persistent" ]; # crashes. idk why
     };
   };
 }
