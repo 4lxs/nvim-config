@@ -460,4 +460,5 @@ require("lze").load({
 	},
 	{ import = "plugins.lua" },
 	{ import = "plugins.java" },
+	{ import = "plugins.nix" },
 })
