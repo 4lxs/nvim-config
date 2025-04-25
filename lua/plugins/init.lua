@@ -89,8 +89,9 @@ require("lze").load({
 	},
 	{
 		"lazydev.nvim",
-		ft = "lua",
-		cmd = "LazyDev",
+		-- TODO: lazy loading. doesn't work due to blink
+		-- ft = "lua",
+		-- cmd = "LazyDev",
 		after = function()
 			require("lazydev").setup({
 				library = {
@@ -458,4 +459,5 @@ require("lze").load({
 		end,
 	},
 	{ import = "plugins.lua" },
+	{ import = "plugins.java" },
 })

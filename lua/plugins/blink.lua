@@ -10,9 +10,7 @@ return {
 		after = function()
 			require("blink.cmp").setup({
 				sources = {
-					-- TODO lazydev completion
-					default = { "lsp", "path", "snippets", "buffer" },
-					per_filetype = { lua = { "lazydev", "lsp", "path", "snippets", "buffer" } },
+					default = { "lazydev", "lsp", "path", "snippets", "buffer" },
 					providers = {
 						lazydev = {
 							name = "LazyDev",

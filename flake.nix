@@ -42,6 +42,10 @@
           nix-doc
           nixd
         ];
+
+        java = with pkgs; [
+          jdt-language-server
+        ];
       };
 
       startupPlugins = {
@@ -96,6 +100,10 @@
           telescope-fzf-native-nvim
           telescope-ui-select-nvim
           telescope-nvim
+        ];
+
+        java = with pkgs.vimPlugins; [
+          nvim-jdtls
         ];
       };
 
@@ -154,10 +162,12 @@
           general = true;
 
           treesitter = true;
-          telescope = true;
+          # telescope = true;
 
           lua = true;
           nix = true;
+          java = true;
+          java-jdtls-path = "${pkgs.jdt-language-server}/bin/jdtls";
 
           theme = true;
           colorscheme = "catppuccin-mocha";
