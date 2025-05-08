@@ -46,6 +46,10 @@
         java = with pkgs; [
           jdt-language-server
         ];
+
+        cpp = with pkgs; [
+          llvmPackages_20.clang-tools
+        ];
       };
 
       startupPlugins = {
@@ -87,6 +91,7 @@
           lualine-nvim
           persistence-nvim
           vim-kitty-navigator
+          clangd_extensions-nvim
         ];
 
         treesitter = with pkgs.vimPlugins; [
@@ -168,6 +173,7 @@
           nix = true;
           java = true;
           java-jdtls-path = "${pkgs.jdt-language-server}/bin/jdtls";
+          cpp = true;
 
           theme = true;
           colorscheme = "catppuccin-mocha";
