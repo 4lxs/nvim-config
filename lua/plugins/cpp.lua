@@ -25,6 +25,7 @@ return {
 	},
 	{
 		"clangd_extensions.nvim",
+		for_cat = "cpp",
 		after = function()
 			require("clangd_extensions").setup({
 				opts = {

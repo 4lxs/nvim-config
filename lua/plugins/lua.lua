@@ -4,6 +4,9 @@ return {
 		for_cat = "lua",
 		lsp = {
 			filetypes = { "lua" },
+			cmd = {
+				nixCats("lua_ls_path"),
+			},
 			settings = {
 				Lua = {
 					runtime = { version = "LuaJIT" },

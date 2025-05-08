@@ -170,6 +170,7 @@
           # telescope = true;
 
           lua = true;
+          lua_ls_path = "${pkgs.lua-language-server}/bin/lua-language-server";
           nix = true;
           java = true;
           java-jdtls-path = "${pkgs.jdt-language-server}/bin/jdtls";
