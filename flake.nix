@@ -92,6 +92,8 @@
           persistence-nvim
           vim-kitty-navigator
           clangd_extensions-nvim
+          competitest-nvim
+          nui-nvim
         ];
 
         treesitter = with pkgs.vimPlugins; [
@@ -172,9 +174,11 @@
           lua = true;
           lua_ls_path = "${pkgs.lua-language-server}/bin/lua-language-server";
           nix = true;
+          nixd_path = "${pkgs.nixd}/bin/nixd";
           java = true;
           java-jdtls-path = "${pkgs.jdt-language-server}/bin/jdtls";
           cpp = true;
+          clangd_path = "${pkgs.llvmPackages_20.clang-tools}/bin/clangd";
 
           theme = true;
           colorscheme = "catppuccin-mocha";

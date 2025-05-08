@@ -443,6 +443,10 @@ require("lze").load({
         {"<C-right>", "<cmd>KittyNavigateRight<cr>", desc = "Move right a Split", mode = {"n"}},
     },
 	},
+	{
+		"nui.nvim",
+		dep_of = { "competitest.nvim" },
+	},
 
 	{
 		"nvim-lspconfig",
